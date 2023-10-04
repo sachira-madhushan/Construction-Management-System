@@ -33,28 +33,32 @@ namespace Darshana
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(51, 163);
+            this.button1.Location = new System.Drawing.Point(26, 92);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 53);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Add New Site";
+            this.button1.Text = "Manage Sites";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1033, 72);
+            this.button2.Location = new System.Drawing.Point(26, 170);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(192, 53);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Add New Site";
+            this.button2.Text = "Add New Material";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -82,8 +86,29 @@ namespace Darshana
             this.label1.TabIndex = 0;
             this.label1.Text = "Project Manager";
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.DarkViolet;
+            this.panel2.Location = new System.Drawing.Point(1, 967);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1900, 65);
+            this.panel2.TabIndex = 14;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 540);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(774, 421);
+            this.dataGridView1.TabIndex = 15;
+            // 
             // button5
             // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.BackColor = System.Drawing.Color.Transparent;
             this.button5.BackgroundImage = global::Darshana.Properties.Resources.macos_minimize_480px;
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -92,9 +117,11 @@ namespace Darshana
             this.button5.Size = new System.Drawing.Size(53, 49);
             this.button5.TabIndex = 13;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.Color.Transparent;
             this.button4.BackgroundImage = global::Darshana.Properties.Resources.back_to_480px;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -103,9 +130,11 @@ namespace Darshana
             this.button4.Size = new System.Drawing.Size(53, 49);
             this.button4.TabIndex = 11;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.BackgroundImage = global::Darshana.Properties.Resources.close_window_480px;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -114,12 +143,15 @@ namespace Darshana
             this.button3.Size = new System.Drawing.Size(53, 49);
             this.button3.TabIndex = 12;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // ProjectManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -131,6 +163,7 @@ namespace Darshana
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -144,5 +177,7 @@ namespace Darshana
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
