@@ -36,7 +36,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxLabourID = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxSite = new System.Windows.Forms.TextBox();
             this.textBoxNIC = new System.Windows.Forms.TextBox();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
@@ -45,6 +44,7 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBoxSite = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,14 +124,6 @@
             this.textBoxName.Size = new System.Drawing.Size(207, 26);
             this.textBoxName.TabIndex = 10;
             // 
-            // textBoxSite
-            // 
-            this.textBoxSite.Location = new System.Drawing.Point(105, 104);
-            this.textBoxSite.Multiline = true;
-            this.textBoxSite.Name = "textBoxSite";
-            this.textBoxSite.Size = new System.Drawing.Size(207, 26);
-            this.textBoxSite.TabIndex = 11;
-            // 
             // textBoxNIC
             // 
             this.textBoxNIC.Location = new System.Drawing.Point(105, 149);
@@ -209,11 +201,20 @@
             this.dataGridView1.Size = new System.Drawing.Size(672, 391);
             this.dataGridView1.TabIndex = 19;
             // 
+            // comboBoxSite
+            // 
+            this.comboBoxSite.FormattingEnabled = true;
+            this.comboBoxSite.Location = new System.Drawing.Point(105, 109);
+            this.comboBoxSite.Name = "comboBoxSite";
+            this.comboBoxSite.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSite.TabIndex = 20;
+            // 
             // ManageLabours
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 410);
+            this.Controls.Add(this.comboBoxSite);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonRefresh);
@@ -222,7 +223,6 @@
             this.Controls.Add(this.textBoxAddress);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxNIC);
-            this.Controls.Add(this.textBoxSite);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.textBoxLabourID);
             this.Controls.Add(this.label9);
@@ -233,6 +233,7 @@
             this.Controls.Add(this.label2);
             this.Name = "ManageLabours";
             this.Text = "ManageLabours";
+            this.Load += new System.EventHandler(this.ManageLabours_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -248,7 +249,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxLabourID;
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.TextBox textBoxSite;
         private System.Windows.Forms.TextBox textBoxNIC;
         private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.TextBox textBoxAddress;
@@ -257,5 +257,6 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox comboBoxSite;
     }
 }
