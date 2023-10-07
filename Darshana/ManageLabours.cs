@@ -37,7 +37,7 @@ namespace Darshana
             string address = textBoxAddress.Text;
             //string password = textBox7.Text;
 
-            if (LaborID != "" && Name != "" && site != "")
+            if (LaborID != "" && Name != "" && site != "" && phone != 0)
             {
                 string queryAddLabor = "INSERT INTO labor(`LaborID`, `Name`, `Site`, `NIC`,`Phone`,`Address`) VALUES ('" + LaborID + "', '" + Name + "', '" + site + "', '" + NIC + "', '" + phone + "', '" + address + "')";
                 //string query1 = "INSERT INTO sites(`SEID`,`SiteName`) VALUES ('" + SEID + "','" + site + "')";
