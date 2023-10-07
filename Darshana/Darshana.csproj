@@ -57,11 +57,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageLabours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageLabours.Designer.cs">
+      <DependentUpon>ManageLabours.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageSites.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageSites.Designer.cs">
       <DependentUpon>ManageSites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSupervisors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageSupervisors.Designer.cs">
+      <DependentUpon>ManageSupervisors.cs</DependentUpon>
     </Compile>
     <Compile Include="OwnerLogin.cs">
       <SubType>Form</SubType>
@@ -89,6 +101,12 @@
     <Compile Include="SELogin.Designer.cs">
       <DependentUpon>SELogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="SiteEngineer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiteEngineer.Designer.cs">
+      <DependentUpon>SiteEngineer.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +115,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageLabours.resx">
+      <DependentUpon>ManageLabours.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageSites.resx">
       <DependentUpon>ManageSites.cs</DependentUpon>
@@ -122,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="SELogin.resx">
       <DependentUpon>SELogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiteEngineer.resx">
+      <DependentUpon>SiteEngineer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>

@@ -52,9 +52,9 @@ namespace Darshana
                     string storedPassword = passCheck.ExecuteScalar().ToString();
                     if (storedPassword == password)
                     {
-                        ProjectManager pm = new ProjectManager();
+                        SiteEngineer sEng = new SiteEngineer();
                         this.Hide();
-                        pm.Show();
+                        sEng.Show();
                     }
                     else
                     {
