@@ -49,11 +49,6 @@ namespace Darshana
                 MySqlDataReader myReader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
 
-                //databaseConnection.Open();
-                //MySqlCommand commandDatabase2 = new MySqlCommand(query1, databaseConnection);
-                //commandDatabase2.CommandTimeout = 60;
-                //commandDatabase2.ExecuteNonQuery();
-                //databaseConnection.Close();
 
                 DialogResult result = MessageBox.Show("Data Saved !", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBoxLabourID.Text = "";
@@ -82,6 +77,49 @@ namespace Darshana
             dataGridView1.DataSource = dataTable;
             dataGridView1.Refresh();
             connection.Close();
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            string LaborID = textBoxLabourID.Text;
+            string Name = textBoxName.Text;
+            string site = textBoxSite.Text;
+            string NIC = textBoxNIC.Text;
+            int phone = 0;
+            try
+            {
+                phone = Int32.Parse(textBoxPhone.Text);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            string address = textBoxAddress.Text;
+
+            if (LaborID != "")
+            {
+
+                string updateQuery = "UPDATE labor SET Name=@name, site=@site, NIC=@nic, Phone=@phone, Address=@address WHERE LaborID = @LaborID";
+                MySqlConnection connection = new MySqlConnection(db.connectionString);
+                connection.Open();
+                MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                updateCommand.Parameters.AddWithValue("@name", Name);
+                updateCommand.Parameters.AddWithValue("@site", site);
+                updateCommand.Parameters.AddWithValue("@nic", NIC);
+                updateCommand.Parameters.AddWithValue("@phone", phone);
+                updateCommand.Parameters.AddWithValue("@address", address);
+                updateCommand.Parameters.AddWithValue("@LaborID", LaborID);
+                int rowsAffected = updateCommand.ExecuteNonQuery();
+                connection.Close();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Update success !", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Site ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
