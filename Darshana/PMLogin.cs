@@ -64,7 +64,7 @@ namespace Darshana
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Invalied ID or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalied ID or Password"+ ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
                 

@@ -69,11 +69,19 @@
     <Compile Include="ManageSites.Designer.cs">
       <DependentUpon>ManageSites.cs</DependentUpon>
     </Compile>
+
     <Compile Include="ManageSupervisors.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageSupervisors.Designer.cs">
       <DependentUpon>ManageSupervisors.cs</DependentUpon>
+
+    <Compile Include="Materials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materials.Designer.cs">
+      <DependentUpon>Materials.cs</DependentUpon>
+
     </Compile>
     <Compile Include="OwnerLogin.cs">
       <SubType>Form</SubType>
@@ -121,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageSites.resx">
       <DependentUpon>ManageSites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materials.resx">
+      <DependentUpon>Materials.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OwnerLogin.resx">
       <DependentUpon>OwnerLogin.cs</DependentUpon>
