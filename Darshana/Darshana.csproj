@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.0.32.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 8.0.32\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
+      <HintPath>C:\Users\ashwi\Downloads\mysql.data\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,17 +57,31 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageLabours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageLabours.Designer.cs">
+      <DependentUpon>ManageLabours.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageSites.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageSites.Designer.cs">
       <DependentUpon>ManageSites.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="ManageSupervisors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageSupervisors.Designer.cs">
+      <DependentUpon>ManageSupervisors.cs</DependentUpon>
+
     <Compile Include="Materials.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Materials.Designer.cs">
       <DependentUpon>Materials.cs</DependentUpon>
+
     </Compile>
     <Compile Include="OwnerLogin.cs">
       <SubType>Form</SubType>
@@ -95,6 +109,12 @@
     <Compile Include="SELogin.Designer.cs">
       <DependentUpon>SELogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="SiteEngineer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiteEngineer.Designer.cs">
+      <DependentUpon>SiteEngineer.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +123,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageLabours.resx">
+      <DependentUpon>ManageLabours.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageSites.resx">
       <DependentUpon>ManageSites.cs</DependentUpon>
@@ -131,6 +154,9 @@
     </Compile>
     <EmbeddedResource Include="SELogin.resx">
       <DependentUpon>SELogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiteEngineer.resx">
+      <DependentUpon>SiteEngineer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>

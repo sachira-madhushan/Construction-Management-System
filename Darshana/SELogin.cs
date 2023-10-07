@@ -35,7 +35,7 @@ namespace Darshana
             string id = textBox1.Text;
             string password = textBox2.Text;
             string con = db.connectionString;
-            string querySearch = "SELECT * FROM siteengineer where SEID = @id Limit 1";
+            string querySearch = "SELECT * FROM siteengineers where SEID = @id Limit 1";
             MySqlConnection connection = new MySqlConnection(con);
             connection.Open();
             MySqlCommand userCheck = new MySqlCommand(querySearch, connection);
@@ -43,7 +43,7 @@ namespace Darshana
             string user = userCheck.ExecuteScalar()?.ToString();
             if (user != null)
             {
-                string pass = "SELECT Password FROM siteengineer where SEID = @id Limit 1";
+                string pass = "SELECT Password FROM siteengineers where SEID = @id Limit 1";
                 MySqlConnection Passconnection = new MySqlConnection(con);
                 MySqlCommand passCheck = new MySqlCommand(pass, connection);
                 passCheck.Parameters.AddWithValue("@id", id);
@@ -52,9 +52,9 @@ namespace Darshana
                     string storedPassword = passCheck.ExecuteScalar().ToString();
                     if (storedPassword == password)
                     {
-                        ProjectManager pm = new ProjectManager();
+                        SiteEngineer sEng = new SiteEngineer();
                         this.Hide();
-                        pm.Show();
+                        sEng.Show();
                     }
                     else
                     {
