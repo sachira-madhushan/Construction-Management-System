@@ -17,7 +17,7 @@ namespace Darshana
         {
             InitializeComponent();
         }
-
+        
         private void button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -90,7 +90,7 @@ namespace Darshana
 
         private void ProjectManager_Load(object sender, EventArgs e)
         {
-
+            timer1.Start();
             string date = DateTime.Now.ToString().Split()[0];
             MySqlConnection connection = new MySqlConnection(db.connectionString);
             connection.Open();
@@ -112,6 +112,11 @@ namespace Darshana
             dataGridView2.DataSource = dataTable2;
             dataGridView2.Refresh();
             connection.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label6.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
     }
 }

@@ -29,6 +29,7 @@ namespace Darshana
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,6 +40,7 @@ namespace Darshana
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,16 +49,16 @@ namespace Darshana
             this.button6 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button11 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -87,7 +89,7 @@ namespace Darshana
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.DarkViolet;
             this.panel1.Controls.Add(this.button5);
@@ -151,7 +153,7 @@ namespace Darshana
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.DarkViolet;
             this.panel2.Location = new System.Drawing.Point(1, 967);
@@ -185,6 +187,16 @@ namespace Darshana
             this.panel3.Size = new System.Drawing.Size(932, 577);
             this.panel3.TabIndex = 24;
             this.panel3.Tag = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 25);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Labourers";
             // 
             // button9
             // 
@@ -267,6 +279,34 @@ namespace Darshana
             this.panel4.Size = new System.Drawing.Size(943, 577);
             this.panel4.TabIndex = 25;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(19, 93);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(173, 44);
+            this.button7.TabIndex = 35;
+            this.button7.Text = "Refresh";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 25);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Supervisors";
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(19, 39);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(173, 44);
+            this.button11.TabIndex = 31;
+            this.button11.Text = "Download Report";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
             // button10
             // 
             this.button10.Location = new System.Drawing.Point(594, 96);
@@ -304,61 +344,28 @@ namespace Darshana
             this.dateTimePicker2.Size = new System.Drawing.Size(326, 30);
             this.dateTimePicker2.TabIndex = 30;
             // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(19, 39);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(173, 44);
-            this.button11.TabIndex = 31;
-            this.button11.Text = "Download Report";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 25);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Labourers";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 25);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Supervisors";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(19, 93);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(173, 44);
-            this.button7.TabIndex = 35;
-            this.button7.Text = "Refresh";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // panel5
             // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(1512, 72);
+            this.panel5.Location = new System.Drawing.Point(1670, 72);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(418, 62);
+            this.panel5.Size = new System.Drawing.Size(260, 43);
             this.panel5.TabIndex = 26;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(126, 20);
+            this.label6.Location = new System.Drawing.Point(13, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 25);
             this.label6.TabIndex = 37;
             this.label6.Text = "Site :";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // ProjectManager
             // 
@@ -423,5 +430,6 @@ namespace Darshana
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Timer timer1;
     }
 }
