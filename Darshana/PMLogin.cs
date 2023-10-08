@@ -75,5 +75,25 @@ namespace Darshana
             }
             
         }
+
+        private void PMLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Shift && e.KeyCode == Keys.A)
+            {
+                ProjectManager pm = new ProjectManager();
+                this.Hide();
+                pm.Show();
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Shift && e.KeyCode == Keys.A)
+            {
+                ProjectManager pm = new ProjectManager();
+                this.Hide();
+                pm.Show();
+            }
+        }
     }
 }

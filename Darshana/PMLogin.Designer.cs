@@ -152,6 +152,7 @@ namespace Darshana
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(352, 38);
             this.textBox1.TabIndex = 14;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // PMLogin
             // 
@@ -169,6 +170,7 @@ namespace Darshana
             this.Name = "PMLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PMLogin";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PMLogin_KeyDown);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
