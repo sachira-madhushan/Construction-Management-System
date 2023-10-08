@@ -176,6 +176,7 @@
             this.buttonDelete.TabIndex = 18;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonRefresh
             // 
@@ -231,6 +232,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
+            this.MaximizeBox = false;
             this.Name = "ManageLabours";
             this.Text = "ManageLabours";
             this.Load += new System.EventHandler(this.ManageLabours_Load);

@@ -37,7 +37,32 @@ namespace Darshana
             string address = textBoxAddress.Text;
             //string password = textBox7.Text;
 
-            if (LaborID != "" && Name != "" && site != "" && phone != 0 && phone.ToString().Length == 10)
+            ////if repeat LabourID
+            //MySqlConnection connection = new MySqlConnection(db.connectionString);
+            //connection.Open();
+            //string querySelect = "SELECT * FROM Labor";
+            //MySqlCommand command = new MySqlCommand(querySelect, connection);
+            //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            //DataTable dataTable = new DataTable();
+            //adapter.Fill(dataTable);
+
+            //bool repeat = false;
+
+            //for (int i = 0; i < dataTable.Rows.Count; i++)
+            //{
+            //    if (LaborID == dataTable.Rows[i]["LaborID"])
+            //    {
+            //        repeat = true;
+            //    }
+            //}
+
+            //if (repeat == true)
+            //    MessageBox.Show("Labour ID already exists !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //connection.Close();
+            ////if repeat LabourID ***end//
+
+
+            if (LaborID != "" && Name != "" && site != "")
             {
                 string queryAddLabor = "INSERT INTO labor(`LaborID`, `Name`, `Site`, `NIC`,`Phone`,`Address`) VALUES ('" + LaborID + "', '" + Name + "', '" + site + "', '" + NIC + "', '" + phone + "', '" + address + "')";
                 //string query1 = "INSERT INTO sites(`SEID`,`SiteName`) VALUES ('" + SEID + "','" + site + "')";
@@ -61,14 +86,7 @@ namespace Darshana
             }
             else
             {
-                if(phone == 0 || phone.ToString().Length != 10)
-                {
-                    MessageBox.Show("Enter valid phone number !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    DialogResult result = MessageBox.Show("Please fill details !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                DialogResult result = MessageBox.Show("Please fill details !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -103,7 +121,7 @@ namespace Darshana
             }
             string address = textBoxAddress.Text;
 
-            if (LaborID != "" && phone != 0 && phone.ToString().Length == 10)
+            if (LaborID != "" || phone.ToString().Length != 10)
             {
 
                 string updateQuery = "UPDATE labor SET Name=@name, site=@site, NIC=@nic, Phone=@phone, Address=@address WHERE LaborID = @LaborID";
@@ -125,12 +143,7 @@ namespace Darshana
             }
             else
             {
-                if(phone == 0 || phone.ToString().Length != 10)
-                {
-                    MessageBox.Show("Enter valid phone number !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                    MessageBox.Show("Site ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Site ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -153,13 +166,59 @@ namespace Darshana
 
             DataTable dt = new DataTable();
 
-            adapter.Fill(dt);
+            adapter2.Fill(dt);
 
             for(int i=0; i<dt.Rows.Count; i++)
             {
                 comboBoxSite.Items.Add(dt.Rows[i]["SiteName"]);
             }
             connection.Close();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            string LaborID = textBoxLabourID.Text;
+            if (LaborID != "")
+            {
+                string deleteQuery = "DELETE FROM `labor` WHERE LaborID=@laborid";
+                //string updateQuery2 = "DELETE FROM `sites` WHERE SEID=@seid";
+                MySqlConnection connection = new MySqlConnection(db.connectionString);
+                connection.Open();
+                MySqlCommand deleteCommand = new MySqlCommand(deleteQuery, connection);
+                deleteCommand.Parameters.AddWithValue("@laborid", LaborID);
+                int rowsAffected = deleteCommand.ExecuteNonQuery();
+
+                ////chech whether user enter correct labourID
+                //string querySelect = "SELECT * FROM Labor";
+                //MySqlCommand command = new MySqlCommand(querySelect, connection);
+                //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                //DataTable dataTable = new DataTable();
+                //adapter.Fill(dataTable);
+
+                //bool check1 = false;
+
+                //for (int i = 0; i < dataTable.Rows.Count; i++)
+                //{
+                //    if(LaborID == dataTable.Rows[i]["LaborID"])
+                //    {
+                //        check1 = true;
+                //    }
+                //}
+
+                //if(check1 == true)
+                //    MessageBox.Show("Labour ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                connection.Close();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Deleted !", "Done", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Labour ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
