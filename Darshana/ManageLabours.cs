@@ -121,7 +121,7 @@ namespace Darshana
             }
             string address = textBoxAddress.Text;
 
-            if (LaborID != "" || phone.ToString().Length != 10)
+            if (LaborID != "")
             {
 
                 string updateQuery = "UPDATE labor SET Name=@name, site=@site, NIC=@nic, Phone=@phone, Address=@address WHERE LaborID = @LaborID";
@@ -158,21 +158,29 @@ namespace Darshana
             adapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
             dataGridView1.Refresh();
-            
-
-            string querySiteSelect = "SELECT * FROM sites";
-            MySqlCommand comm = new MySqlCommand(querySiteSelect, connection);
-            MySqlDataAdapter adapter2 = new MySqlDataAdapter(comm);
-
-            DataTable dt = new DataTable();
-
-            adapter2.Fill(dt);
-
-            for(int i=0; i<dt.Rows.Count; i++)
-            {
-                comboBoxSite.Items.Add(dt.Rows[i]["SiteName"]);
-            }
             connection.Close();
+
+            //load site names to the combo boxes
+            using (MySqlConnection c = new MySqlConnection(db.connectionString))
+            {
+                c.Open();
+
+                // Create a MySqlCommand
+                using (MySqlCommand cmd = new MySqlCommand("SELECT SiteName FROM sites", c))
+                {
+                    // Execute the query and read the results
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Add each value to the ComboBox
+                            comboBoxSite.Items.Add(reader["SiteName"].ToString());
+                        }
+                    }
+                }
+                //end of combo boxes
+
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
