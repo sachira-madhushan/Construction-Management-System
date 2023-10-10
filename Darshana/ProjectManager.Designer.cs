@@ -33,11 +33,10 @@ namespace Darshana
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,7 +57,6 @@ namespace Darshana
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.button12 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
@@ -66,6 +64,7 @@ namespace Darshana
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.button15 = new System.Windows.Forms.Button();
@@ -75,10 +74,13 @@ namespace Darshana
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.button17 = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -87,7 +89,6 @@ namespace Darshana
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -128,45 +129,6 @@ namespace Darshana
             this.panel1.Size = new System.Drawing.Size(1940, 65);
             this.panel1.TabIndex = 2;
             // 
-            // button5
-            // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.BackgroundImage = global::Darshana.Properties.Resources.macos_minimize_480px;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Location = new System.Drawing.Point(1816, 8);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(53, 49);
-            this.button5.TabIndex = 13;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.BackgroundImage = global::Darshana.Properties.Resources.back_to_480px;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Location = new System.Drawing.Point(1754, 8);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(53, 49);
-            this.button4.TabIndex = 11;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImage = global::Darshana.Properties.Resources.close_window_480px;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(1877, 8);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 49);
-            this.button3.TabIndex = 12;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -188,6 +150,25 @@ namespace Darshana
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1940, 65);
             this.panel2.TabIndex = 14;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Location = new System.Drawing.Point(11, 11);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(349, 43);
+            this.panel5.TabIndex = 29;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(1, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 25);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Site :";
             // 
             // dataGridView2
             // 
@@ -418,16 +399,6 @@ namespace Darshana
             this.panel6.Size = new System.Drawing.Size(833, 450);
             this.panel6.TabIndex = 27;
             // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(19, 144);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(798, 294);
-            this.dataGridView3.TabIndex = 18;
-            // 
             // button12
             // 
             this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(49)))), ((int)(((byte)(167)))));
@@ -438,6 +409,7 @@ namespace Darshana
             this.button12.TabIndex = 42;
             this.button12.Text = "Refresh";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // label7
             // 
@@ -460,6 +432,7 @@ namespace Darshana
             this.button13.TabIndex = 37;
             this.button13.Text = "Download Report";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -471,6 +444,7 @@ namespace Darshana
             this.button14.TabIndex = 40;
             this.button14.Text = "Filter";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // label8
             // 
@@ -502,6 +476,16 @@ namespace Darshana
             this.dateTimePicker3.Size = new System.Drawing.Size(326, 30);
             this.dateTimePicker3.TabIndex = 36;
             // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(19, 144);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(798, 294);
+            this.dataGridView3.TabIndex = 18;
+            // 
             // panel7
             // 
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -527,9 +511,9 @@ namespace Darshana
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(13, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 25);
+            this.label9.Size = new System.Drawing.Size(163, 25);
             this.label9.TabIndex = 31;
-            this.label9.Text = "Labourers";
+            this.label9.Text = "Skilled Labourers";
             // 
             // button15
             // 
@@ -541,6 +525,7 @@ namespace Darshana
             this.button15.TabIndex = 30;
             this.button15.Text = "Download Report";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button16
             // 
@@ -552,6 +537,7 @@ namespace Darshana
             this.button16.TabIndex = 29;
             this.button16.Text = "Filter";
             this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // label10
             // 
@@ -593,6 +579,7 @@ namespace Darshana
             this.button17.TabIndex = 25;
             this.button17.Text = "Refresh";
             this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // dataGridView4
             // 
@@ -604,24 +591,56 @@ namespace Darshana
             this.dataGridView4.Size = new System.Drawing.Size(803, 292);
             this.dataGridView4.TabIndex = 24;
             // 
-            // panel5
+            // button18
             // 
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(11, 11);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(349, 43);
-            this.panel5.TabIndex = 29;
+            this.button18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(49)))), ((int)(((byte)(167)))));
+            this.button18.ForeColor = System.Drawing.Color.White;
+            this.button18.Location = new System.Drawing.Point(7, 245);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(192, 53);
+            this.button18.TabIndex = 33;
+            this.button18.Text = "Pay Sheet";
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
-            // label6
+            // button5
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(1, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 25);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "Site :";
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.BackgroundImage = global::Darshana.Properties.Resources.macos_minimize_480px;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Location = new System.Drawing.Point(1816, 8);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(53, 49);
+            this.button5.TabIndex = 13;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackgroundImage = global::Darshana.Properties.Resources.back_to_480px;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.Location = new System.Drawing.Point(1754, 8);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(53, 49);
+            this.button4.TabIndex = 11;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImage = global::Darshana.Properties.Resources.close_window_480px;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Location = new System.Drawing.Point(1877, 8);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(53, 49);
+            this.button3.TabIndex = 12;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // ProjectManager
             // 
@@ -629,6 +648,7 @@ namespace Darshana
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.ClientSize = new System.Drawing.Size(1942, 1102);
+            this.Controls.Add(this.button18);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel2);
@@ -641,13 +661,14 @@ namespace Darshana
             this.MaximizeBox = false;
             this.Name = "ProjectManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ProjectManager";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ProjectManager_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ProjectManager_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -660,8 +681,6 @@ namespace Darshana
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -715,5 +734,6 @@ namespace Darshana
         public System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button18;
     }
 }

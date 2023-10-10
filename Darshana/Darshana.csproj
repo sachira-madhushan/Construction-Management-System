@@ -81,6 +81,12 @@
     <Compile Include="OwnerLogin.Designer.cs">
       <DependentUpon>OwnerLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaySheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaySheet.Designer.cs">
+      <DependentUpon>PaySheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="PMLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OwnerLogin.resx">
       <DependentUpon>OwnerLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaySheet.resx">
+      <DependentUpon>PaySheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PMLogin.resx">
       <DependentUpon>PMLogin.cs</DependentUpon>
