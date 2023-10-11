@@ -10,9 +10,12 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 namespace Darshana
 {
+
+    
     public partial class SELogin : Form
     {
         Database db = new Database();
+        private string SEID;
         public SELogin()
         {
             InitializeComponent();
@@ -35,7 +38,7 @@ namespace Darshana
             string id = textBox1.Text;
             string password = textBox2.Text;
             string con = db.connectionString;
-            string querySearch = "SELECT * FROM siteengineer where SEID = @id Limit 1";
+            string querySearch = "SELECT * FROM siteengineers where SEID = @id Limit 1";
             MySqlConnection connection = new MySqlConnection(con);
             connection.Open();
             MySqlCommand userCheck = new MySqlCommand(querySearch, connection);
@@ -43,7 +46,7 @@ namespace Darshana
             string user = userCheck.ExecuteScalar()?.ToString();
             if (user != null)
             {
-                string pass = "SELECT Password FROM siteengineer where SEID = @id Limit 1";
+                string pass = "SELECT Password FROM siteengineers where SEID = @id Limit 1";
                 MySqlConnection Passconnection = new MySqlConnection(con);
                 MySqlCommand passCheck = new MySqlCommand(pass, connection);
                 passCheck.Parameters.AddWithValue("@id", id);
@@ -52,9 +55,10 @@ namespace Darshana
                     string storedPassword = passCheck.ExecuteScalar().ToString();
                     if (storedPassword == password)
                     {
-                        ProjectManager pm = new ProjectManager();
+                        Set_SEID(id);
+                        SiteEngineer se = new SiteEngineer(this);
                         this.Hide();
-                        pm.Show();
+                        se.Show();
                     }
                     else
                     {
@@ -63,7 +67,7 @@ namespace Darshana
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Invalied ID or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalied ID or Password"+ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
 
@@ -72,6 +76,16 @@ namespace Darshana
             {
                 MessageBox.Show("Invalied ID or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        public string Get_SEID()
+        {
+            return SEID;
+        }
+        public void Set_SEID(string id)
+        {
+            SEID = id;
         }
     }
 }

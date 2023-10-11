@@ -63,6 +63,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LaborersAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LaborersAttendance.Designer.cs">
+      <DependentUpon>LaborersAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageSites.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,12 @@
     <Compile Include="SELogin.Designer.cs">
       <DependentUpon>SELogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="SiteEngineer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SiteEngineer.Designer.cs">
+      <DependentUpon>SiteEngineer.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +127,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaborersAttendance.resx">
+      <DependentUpon>LaborersAttendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageSites.resx">
       <DependentUpon>ManageSites.cs</DependentUpon>
@@ -146,6 +161,9 @@
     </Compile>
     <EmbeddedResource Include="SELogin.resx">
       <DependentUpon>SELogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiteEngineer.resx">
+      <DependentUpon>SiteEngineer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>
