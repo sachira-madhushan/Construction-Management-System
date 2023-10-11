@@ -23,7 +23,7 @@ namespace Darshana
         {
             string SkillLaborID = textBoxSkilledLabourID.Text;
             string Name = textBoxName.Text;
-            string site = comboBoxSite.Text;
+            //string site = comboBoxSite.Text;
             string NIC = textBoxNIC.Text;
             int phone = 0;
             try
@@ -37,9 +37,9 @@ namespace Darshana
             string address = textBoxAddress.Text;
 
 
-            if (SkillLaborID != "" && Name != "" && site != "")
+            if (SkillLaborID != "" && Name != "")
             {
-                string queryAddLabor = "INSERT INTO skilledlabor(`SkillLaborID`, `Name`, `Site`, `NIC`,`Phone`,`Address`) VALUES ('" + SkillLaborID + "', '" + Name + "', '" + site + "', '" + NIC + "', '" + phone + "', '" + address + "')";
+                string queryAddLabor = "INSERT INTO skilledlabor(`SkillLaborID`, `Name`, `NIC`,`Phone`,`Address`) VALUES ('" + SkillLaborID + "', '" + Name + "', '" + NIC + "', '" + phone + "', '" + address + "')";
 
                 MySqlConnection databaseConnection = new MySqlConnection(db.connectionString);
                 databaseConnection.Open();
@@ -52,7 +52,7 @@ namespace Darshana
                 DialogResult result = MessageBox.Show("Data Saved !", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBoxSkilledLabourID.Text = "";
                 textBoxName.Text = "";
-                comboBoxSite.Text = "";
+                //comboBoxSite.Text = "";
                 textBoxNIC.Text = "";
                 textBoxPhone.Text = "";
                 textBoxAddress.Text = "";
@@ -68,7 +68,7 @@ namespace Darshana
         {
             string SkillLaborID = textBoxSkilledLabourID.Text;
             string Name = textBoxName.Text;
-            string site = comboBoxSite.Text;
+            //string site = comboBoxSite.Text;
             string NIC = textBoxNIC.Text;
             int phone = 0;
             try
@@ -89,13 +89,20 @@ namespace Darshana
                 connection.Open();
                 MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
                 updateCommand.Parameters.AddWithValue("@name", Name);
-                updateCommand.Parameters.AddWithValue("@site", site);
+                //updateCommand.Parameters.AddWithValue("@site", site);
                 updateCommand.Parameters.AddWithValue("@nic", NIC);
                 updateCommand.Parameters.AddWithValue("@phone", phone);
                 updateCommand.Parameters.AddWithValue("@address", address);
                 updateCommand.Parameters.AddWithValue("@SkillLaborID", SkillLaborID);
                 int rowsAffected = updateCommand.ExecuteNonQuery();
                 connection.Close();
+                textBoxSkilledLabourID.Text = "";
+                textBoxName.Text = "";
+                //comboBoxSite.Text = "";
+                textBoxNIC.Text = "";
+                textBoxPhone.Text = "";
+                textBoxAddress.Text = "";
+                dataGridView1.Refresh();
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Update success !", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -144,8 +151,44 @@ namespace Darshana
             }
             else
             {
-                MessageBox.Show("Skill Labor ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Skilled Labor ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ManageSkillLabours_Load(object sender, EventArgs e)
+        {
+            MySqlConnection connection = new MySqlConnection(db.connectionString);
+            connection.Open();
+            string querySelect = "SELECT * FROM skilllabors";
+            MySqlCommand command = new MySqlCommand(querySelect, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Refresh();
+            connection.Close();
+        }
+
+        private void buttonLoadByID_Click(object sender, EventArgs e)
+        {
+            string SkillLaborID = textBoxLoad.Text;
+            MySqlConnection connection = new MySqlConnection(db.connectionString);
+            connection.Open();
+            string querySelect = "SELECT * FROM Labor WHERE SkillLaborID = @skilllaborid LIMIT 1";
+            MySqlCommand loadCommand = new MySqlCommand(querySelect, connection);
+            loadCommand.Parameters.AddWithValue("@skilllaborid", SkillLaborID);
+            using (MySqlDataReader reader = loadCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    textBoxSkilledLabourID.Text = (reader["SkillLaborID"].ToString());
+                    textBoxName.Text = (reader["Name"].ToString());
+                    textBoxNIC.Text = (reader["NIC"].ToString());
+                    textBoxPhone.Text = (reader["Phone"].ToString());
+                    textBoxAddress.Text = (reader["Address"].ToString());
+                }
+            }
+            connection.Close();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Darshana
         {
             string SupervisorID = textBoxSupervisorID.Text;
             string Name = textBoxName.Text;
-            string site = comboBoxSite.Text;
+            //string site = comboBoxSite.Text;
             string NIC = textBoxNIC.Text;
             int phone = 0;
             try
@@ -36,9 +36,9 @@ namespace Darshana
             }
             string address = textBoxAddress.Text;
 
-            if (SupervisorID != "" && Name != "" && site != "")
+            if (SupervisorID != "" && Name != "")
             {
-                string queryAddSupervisor = "INSERT INTO supervisor(`SupervisorID`, `Name`, `Site`, `NIC`,`Phone`,`Address`) VALUES ('" + SupervisorID + "', '" + Name + "', '" + site + "', '" + NIC + "', '" + phone + "', '" + address + "')";
+                string queryAddSupervisor = "INSERT INTO supervisor(`SupervisorID`, `Name`, `NIC`,`Phone`,`Address`) VALUES ('" + SupervisorID + "', '" + Name + "', '" + NIC + "', '" + phone + "', '" + address + "')";
 
                 MySqlConnection databaseConnection = new MySqlConnection(db.connectionString);
                 databaseConnection.Open();
@@ -51,7 +51,7 @@ namespace Darshana
                 DialogResult result = MessageBox.Show("Data Saved !", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBoxSupervisorID.Text = "";
                 textBoxName.Text = "";
-                comboBoxSite.Text = "";
+                //comboBoxSite.Text = "";
                 textBoxNIC.Text = "";
                 textBoxPhone.Text = "";
                 textBoxAddress.Text = "";
@@ -76,34 +76,34 @@ namespace Darshana
             dataGridView1.Refresh();
             connection.Close();
 
-            //load site names to the combo boxes
-            using (MySqlConnection c = new MySqlConnection(db.connectionString))
-            {
-                c.Open();
+            ////load site names to the combo boxes
+            //using (MySqlConnection c = new MySqlConnection(db.connectionString))
+            //{
+            //    c.Open();
 
-                // Create a MySqlCommand
-                using (MySqlCommand cmd = new MySqlCommand("SELECT SiteName FROM sites", c))
-                {
-                    // Execute the query and read the results
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // Add each value to the ComboBox
-                            comboBoxSite.Items.Add(reader["SiteName"].ToString());
-                        }
-                    }
-                }
-                //end of combo boxes
+            //    // Create a MySqlCommand
+            //    using (MySqlCommand cmd = new MySqlCommand("SELECT SiteName FROM sites", c))
+            //    {
+            //        // Execute the query and read the results
+            //        using (MySqlDataReader reader = cmd.ExecuteReader())
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                // Add each value to the ComboBox
+            //                comboBoxSite.Items.Add(reader["SiteName"].ToString());
+            //            }
+            //        }
+            //    }
+            //    //end of combo boxes
 
-            }
+            //}
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             string SupervisorID = textBoxSupervisorID.Text;
             string Name = textBoxName.Text;
-            string site = comboBoxSite.Text;
+            //string site = comboBoxSite.Text;
             string NIC = textBoxNIC.Text;
             int phone = 0;
             try
@@ -119,18 +119,25 @@ namespace Darshana
             if (SupervisorID != "")
             {
 
-                string updateQuery = "UPDATE supervisor SET Name=@name, site=@site, NIC=@nic, Phone=@phone, Address=@address WHERE SupervisorID = @SupervisorID";
+                string updateQuery = "UPDATE supervisor SET Name=@name, NIC=@nic, Phone=@phone, Address=@address WHERE SupervisorID = @SupervisorID";
                 MySqlConnection connection = new MySqlConnection(db.connectionString);
                 connection.Open();
                 MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
                 updateCommand.Parameters.AddWithValue("@name", Name);
-                updateCommand.Parameters.AddWithValue("@site", site);
+                //updateCommand.Parameters.AddWithValue("@site", site);
                 updateCommand.Parameters.AddWithValue("@nic", NIC);
                 updateCommand.Parameters.AddWithValue("@phone", phone);
                 updateCommand.Parameters.AddWithValue("@address", address);
                 updateCommand.Parameters.AddWithValue("@SupervisorID", SupervisorID);
                 int rowsAffected = updateCommand.ExecuteNonQuery();
                 connection.Close();
+                textBoxSupervisorID.Text = "";
+                textBoxName.Text = "";
+                //comboBoxSite.Text = "";
+                textBoxNIC.Text = "";
+                textBoxPhone.Text = "";
+                textBoxAddress.Text = "";
+                dataGridView1.Refresh();
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Update success !", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -177,8 +184,30 @@ namespace Darshana
             }
             else
             {
-                MessageBox.Show("Labour ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Supervisor ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonLoadByID_Click(object sender, EventArgs e)
+        {
+            string SupervisorID = textBoxLoad.Text;
+            MySqlConnection connection = new MySqlConnection(db.connectionString);
+            connection.Open();
+            string querySelect = "SELECT * FROM supervisor WHERE SupervisorID = @supervisorid LIMIT 1";
+            MySqlCommand loadCommand = new MySqlCommand(querySelect, connection);
+            loadCommand.Parameters.AddWithValue("@supervisorid", SupervisorID);
+            using (MySqlDataReader reader = loadCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    textBoxSupervisorID.Text = (reader["SupervisorID"].ToString());
+                    textBoxName.Text = (reader["Name"].ToString());
+                    textBoxNIC.Text = (reader["NIC"].ToString());
+                    textBoxPhone.Text = (reader["Phone"].ToString());
+                    textBoxAddress.Text = (reader["Address"].ToString());
+                }
+            }
+            connection.Close();
         }
     }
 }

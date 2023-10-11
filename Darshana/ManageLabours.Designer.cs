@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -44,7 +43,8 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBoxSite = new System.Windows.Forms.ComboBox();
+            this.buttonLoadByID = new System.Windows.Forms.Button();
+            this.textBoxLoad = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,16 +57,6 @@
             this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Labour ID : ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 110);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Site : ";
             // 
             // label6
             // 
@@ -82,7 +72,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(16, 200);
+            this.label7.Location = new System.Drawing.Point(16, 157);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 20);
             this.label7.TabIndex = 7;
@@ -92,7 +82,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(16, 155);
+            this.label8.Location = new System.Drawing.Point(16, 112);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 20);
             this.label8.TabIndex = 6;
@@ -102,7 +92,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(16, 245);
+            this.label9.Location = new System.Drawing.Point(16, 202);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 20);
             this.label9.TabIndex = 8;
@@ -126,7 +116,7 @@
             // 
             // textBoxNIC
             // 
-            this.textBoxNIC.Location = new System.Drawing.Point(105, 149);
+            this.textBoxNIC.Location = new System.Drawing.Point(105, 106);
             this.textBoxNIC.Multiline = true;
             this.textBoxNIC.Name = "textBoxNIC";
             this.textBoxNIC.Size = new System.Drawing.Size(207, 26);
@@ -134,7 +124,7 @@
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(105, 194);
+            this.textBoxPhone.Location = new System.Drawing.Point(105, 151);
             this.textBoxPhone.Multiline = true;
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(207, 26);
@@ -142,7 +132,7 @@
             // 
             // textBoxAddress
             // 
-            this.textBoxAddress.Location = new System.Drawing.Point(105, 239);
+            this.textBoxAddress.Location = new System.Drawing.Point(105, 196);
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(207, 26);
@@ -202,20 +192,33 @@
             this.dataGridView1.Size = new System.Drawing.Size(672, 391);
             this.dataGridView1.TabIndex = 19;
             // 
-            // comboBoxSite
+            // buttonLoadByID
             // 
-            this.comboBoxSite.FormattingEnabled = true;
-            this.comboBoxSite.Location = new System.Drawing.Point(105, 109);
-            this.comboBoxSite.Name = "comboBoxSite";
-            this.comboBoxSite.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxSite.TabIndex = 20;
+            this.buttonLoadByID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLoadByID.Location = new System.Drawing.Point(20, 242);
+            this.buttonLoadByID.Name = "buttonLoadByID";
+            this.buttonLoadByID.Size = new System.Drawing.Size(135, 33);
+            this.buttonLoadByID.TabIndex = 20;
+            this.buttonLoadByID.Text = "Load By ID";
+            this.buttonLoadByID.UseVisualStyleBackColor = true;
+            this.buttonLoadByID.Click += new System.EventHandler(this.buttonLoadByID_Click);
+            // 
+            // textBoxLoad
+            // 
+            this.textBoxLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLoad.Location = new System.Drawing.Point(177, 242);
+            this.textBoxLoad.Multiline = true;
+            this.textBoxLoad.Name = "textBoxLoad";
+            this.textBoxLoad.Size = new System.Drawing.Size(135, 33);
+            this.textBoxLoad.TabIndex = 21;
             // 
             // ManageLabours
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 410);
-            this.Controls.Add(this.comboBoxSite);
+            this.Controls.Add(this.textBoxLoad);
+            this.Controls.Add(this.buttonLoadByID);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonRefresh);
@@ -229,7 +232,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.MaximizeBox = false;
@@ -244,7 +246,6 @@
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -259,6 +260,7 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBoxSite;
+        private System.Windows.Forms.Button buttonLoadByID;
+        private System.Windows.Forms.TextBox textBoxLoad;
     }
 }
