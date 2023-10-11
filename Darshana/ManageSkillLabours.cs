@@ -159,7 +159,7 @@ namespace Darshana
         {
             MySqlConnection connection = new MySqlConnection(db.connectionString);
             connection.Open();
-            string querySelect = "SELECT * FROM skilllabor Site=@site";
+            string querySelect = "SELECT * FROM skilllabor where Site=@site";
             MySqlCommand command = new MySqlCommand(querySelect, connection);
             command.Parameters.AddWithValue("@site", site);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);

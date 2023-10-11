@@ -254,7 +254,7 @@ namespace Darshana
                     // Add content to the PDF document (replace with your content creation code)
                     document.Open();
                     // Create a paragraph with custom text
-                    Paragraph text2 = new Paragraph("Sachira Company");
+                    Paragraph text2 = new Paragraph("ABC Company");
                     // Set the alignment of the paragraph to center
                     text2.Alignment = Element.ALIGN_CENTER;
                     document.Add(text2);
@@ -362,7 +362,7 @@ namespace Darshana
                     // Add content to the PDF document (replace with your content creation code)
                     document.Open();
                     // Create a paragraph with custom text
-                    Paragraph text2 = new Paragraph("Sachira Company");
+                    Paragraph text2 = new Paragraph("ABC Company");
                     // Set the alignment of the paragraph to center
                     text2.Alignment = Element.ALIGN_CENTER;
                     document.Add(text2);
@@ -468,7 +468,7 @@ namespace Darshana
                     // Add content to the PDF document (replace with your content creation code)
                     document.Open();
                     // Create a paragraph with custom text
-                    Paragraph text2 = new Paragraph("Sachira Company");
+                    Paragraph text2 = new Paragraph("ABC Company");
                     // Set the alignment of the paragraph to center
                     text2.Alignment = Element.ALIGN_CENTER;
                     document.Add(text2);
@@ -565,7 +565,7 @@ namespace Darshana
                     // Add content to the PDF document (replace with your content creation code)
                     document.Open();
                     // Create a paragraph with custom text
-                    Paragraph text2 = new Paragraph("Sachira Company");
+                    Paragraph text2 = new Paragraph("ABC Company");
                     // Set the alignment of the paragraph to center
                     text2.Alignment = Element.ALIGN_CENTER;
                     document.Add(text2);
