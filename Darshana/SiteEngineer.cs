@@ -722,5 +722,12 @@ namespace Darshana
             dataGridView3.Refresh();
             connection.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ManageSkillLabours msl = new ManageSkillLabours(this);
+            msl.Show();
+
+        }
     }
 }
