@@ -11,17 +11,17 @@ using MySql.Data.MySqlClient;
 
 namespace Darshana
 {
-    public partial class ManageLabours : Form
+    public partial class ManageSkillLabours : Form
     {
         Database db = new Database();
-        public ManageLabours()
+        public ManageSkillLabours()
         {
             InitializeComponent();
         }
 
         private void buttonAddNew_Click(object sender, EventArgs e)
         {
-            string LaborID = textBoxLabourID.Text;
+            string SkillLaborID = textBoxSkilledLabourID.Text;
             string Name = textBoxName.Text;
             string site = comboBoxSite.Text;
             string NIC = textBoxNIC.Text;
@@ -37,10 +37,9 @@ namespace Darshana
             string address = textBoxAddress.Text;
 
 
-            if (LaborID != "" && Name != "" && site != "")
+            if (SkillLaborID != "" && Name != "" && site != "")
             {
-                string queryAddLabor = "INSERT INTO labor(`LaborID`, `Name`, `Site`, `NIC`,`Phone`,`Address`) VALUES ('" + LaborID + "', '" + Name + "', '" + site + "', '" + NIC + "', '" + phone + "', '" + address + "')";
-                //string query1 = "INSERT INTO sites(`SEID`,`SiteName`) VALUES ('" + SEID + "','" + site + "')";
+                string queryAddLabor = "INSERT INTO skilledlabor(`SkillLaborID`, `Name`, `Site`, `NIC`,`Phone`,`Address`) VALUES ('" + SkillLaborID + "', '" + Name + "', '" + site + "', '" + NIC + "', '" + phone + "', '" + address + "')";
 
                 MySqlConnection databaseConnection = new MySqlConnection(db.connectionString);
                 databaseConnection.Open();
@@ -51,7 +50,7 @@ namespace Darshana
 
 
                 DialogResult result = MessageBox.Show("Data Saved !", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                textBoxLabourID.Text = "";
+                textBoxSkilledLabourID.Text = "";
                 textBoxName.Text = "";
                 comboBoxSite.Text = "";
                 textBoxNIC.Text = "";
@@ -65,23 +64,9 @@ namespace Darshana
             }
         }
 
-        private void buttonRefresh_Click(object sender, EventArgs e)
-        {
-            MySqlConnection connection = new MySqlConnection(db.connectionString);
-            connection.Open();
-            string querySelect = "SELECT * FROM Labor";
-            MySqlCommand command = new MySqlCommand(querySelect, connection);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            dataGridView1.DataSource = dataTable;
-            dataGridView1.Refresh();
-            connection.Close();
-        }
-
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            string LaborID = textBoxLabourID.Text;
+            string SkillLaborID = textBoxSkilledLabourID.Text;
             string Name = textBoxName.Text;
             string site = comboBoxSite.Text;
             string NIC = textBoxNIC.Text;
@@ -96,10 +81,10 @@ namespace Darshana
             }
             string address = textBoxAddress.Text;
 
-            if (LaborID != "")
+            if (SkillLaborID != "")
             {
 
-                string updateQuery = "UPDATE labor SET Name=@name, site=@site, NIC=@nic, Phone=@phone, Address=@address WHERE LaborID = @LaborID";
+                string updateQuery = "UPDATE skilledlabor SET Name=@name, site=@site, NIC=@nic, Phone=@phone, Address=@address WHERE SkillLaborID = @SkillLaborID";
                 MySqlConnection connection = new MySqlConnection(db.connectionString);
                 connection.Open();
                 MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
@@ -108,7 +93,7 @@ namespace Darshana
                 updateCommand.Parameters.AddWithValue("@nic", NIC);
                 updateCommand.Parameters.AddWithValue("@phone", phone);
                 updateCommand.Parameters.AddWithValue("@address", address);
-                updateCommand.Parameters.AddWithValue("@LaborID", LaborID);
+                updateCommand.Parameters.AddWithValue("@SkillLaborID", SkillLaborID);
                 int rowsAffected = updateCommand.ExecuteNonQuery();
                 connection.Close();
                 if (rowsAffected > 0)
@@ -122,11 +107,11 @@ namespace Darshana
             }
         }
 
-        private void ManageLabours_Load(object sender, EventArgs e)
+        private void buttonRefresh_Click(object sender, EventArgs e)
         {
             MySqlConnection connection = new MySqlConnection(db.connectionString);
             connection.Open();
-            string querySelect = "SELECT * FROM Labor";
+            string querySelect = "SELECT * FROM skilledlabor";
             MySqlCommand command = new MySqlCommand(querySelect, connection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             DataTable dataTable = new DataTable();
@@ -134,41 +119,19 @@ namespace Darshana
             dataGridView1.DataSource = dataTable;
             dataGridView1.Refresh();
             connection.Close();
-
-            //load site names to the combo boxes
-            using (MySqlConnection c = new MySqlConnection(db.connectionString))
-            {
-                c.Open();
-
-                // Create a MySqlCommand
-                using (MySqlCommand cmd = new MySqlCommand("SELECT SiteName FROM sites", c))
-                {
-                    // Execute the query and read the results
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // Add each value to the ComboBox
-                            comboBoxSite.Items.Add(reader["SiteName"].ToString());
-                        }
-                    }
-                }
-                //end of combo boxes
-
-            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            string LaborID = textBoxLabourID.Text;
-            if (LaborID != "")
+            string SkillLaborID = textBoxSkilledLabourID.Text;
+            if (SkillLaborID != "")
             {
-                string deleteQuery = "DELETE FROM `labor` WHERE LaborID=@laborid";
-                //string updateQuery2 = "DELETE FROM `sites` WHERE SEID=@seid";
+                string deleteQuery = "DELETE FROM `skilledlabor` WHERE SkillLaborID=@SkillLaborID";
+
                 MySqlConnection connection = new MySqlConnection(db.connectionString);
                 connection.Open();
                 MySqlCommand deleteCommand = new MySqlCommand(deleteQuery, connection);
-                deleteCommand.Parameters.AddWithValue("@laborid", LaborID);
+                deleteCommand.Parameters.AddWithValue("@SkillLaborID", SkillLaborID);
                 int rowsAffected = deleteCommand.ExecuteNonQuery();
 
 
@@ -181,7 +144,7 @@ namespace Darshana
             }
             else
             {
-                MessageBox.Show("Labour ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Skill Labor ID Not Valid !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

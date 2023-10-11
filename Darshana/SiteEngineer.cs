@@ -28,5 +28,11 @@ namespace Darshana
             ManageSupervisors mSup = new ManageSupervisors();
             mSup.Show();
         }
+
+        private void buttonManageSkillLabours_Click(object sender, EventArgs e)
+        {
+            ManageSkillLabours mSkLab = new ManageSkillLabours();
+            mSkLab.Show();
+        }
     }
 }

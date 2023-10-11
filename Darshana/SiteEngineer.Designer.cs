@@ -30,6 +30,7 @@
         {
             this.buttonManageLabours = new System.Windows.Forms.Button();
             this.buttonManageSupervisors = new System.Windows.Forms.Button();
+            this.buttonManageSkillLabours = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonManageLabours
@@ -44,7 +45,7 @@
             // 
             // buttonManageSupervisors
             // 
-            this.buttonManageSupervisors.Location = new System.Drawing.Point(25, 86);
+            this.buttonManageSupervisors.Location = new System.Drawing.Point(25, 155);
             this.buttonManageSupervisors.Name = "buttonManageSupervisors";
             this.buttonManageSupervisors.Size = new System.Drawing.Size(138, 41);
             this.buttonManageSupervisors.TabIndex = 1;
@@ -52,15 +53,26 @@
             this.buttonManageSupervisors.UseVisualStyleBackColor = true;
             this.buttonManageSupervisors.Click += new System.EventHandler(this.buttonManageSupervisors_Click);
             // 
+            // buttonManageSkillLabours
+            // 
+            this.buttonManageSkillLabours.Location = new System.Drawing.Point(25, 92);
+            this.buttonManageSkillLabours.Name = "buttonManageSkillLabours";
+            this.buttonManageSkillLabours.Size = new System.Drawing.Size(138, 41);
+            this.buttonManageSkillLabours.TabIndex = 2;
+            this.buttonManageSkillLabours.Text = "Manage Skilled Labours";
+            this.buttonManageSkillLabours.UseVisualStyleBackColor = true;
+            this.buttonManageSkillLabours.Click += new System.EventHandler(this.buttonManageSkillLabours_Click);
+            // 
             // SiteEngineer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonManageSkillLabours);
             this.Controls.Add(this.buttonManageSupervisors);
             this.Controls.Add(this.buttonManageLabours);
             this.Name = "SiteEngineer";
-            this.Text = "SiteEngineer";
+            this.Text = "Site Engineer";
             this.ResumeLayout(false);
 
         }
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button buttonManageLabours;
         private System.Windows.Forms.Button buttonManageSupervisors;
+        private System.Windows.Forms.Button buttonManageSkillLabours;
     }
 }
