@@ -52,9 +52,6 @@ namespace Darshana
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -77,6 +74,9 @@ namespace Darshana
             this.button21 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -100,6 +100,7 @@ namespace Darshana
             this.button7.TabIndex = 35;
             this.button7.Text = "Refresh";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // dataGridView4
             // 
@@ -136,6 +137,7 @@ namespace Darshana
             this.button12.TabIndex = 42;
             this.button12.Text = "Refresh";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // label7
             // 
@@ -263,6 +265,7 @@ namespace Darshana
             this.button17.TabIndex = 25;
             this.button17.Text = "Refresh";
             this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // label5
             // 
@@ -336,45 +339,6 @@ namespace Darshana
             this.label11.TabIndex = 14;
             this.label11.Text = "SE ID :";
             // 
-            // button5
-            // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.BackgroundImage = global::Darshana.Properties.Resources.macos_minimize_480px;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Location = new System.Drawing.Point(1816, 8);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(53, 49);
-            this.button5.TabIndex = 13;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.BackgroundImage = global::Darshana.Properties.Resources.back_to_480px;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Location = new System.Drawing.Point(1754, 8);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(53, 49);
-            this.button4.TabIndex = 11;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImage = global::Darshana.Properties.Resources.close_window_480px;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(1877, 8);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 49);
-            this.button3.TabIndex = 12;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -407,6 +371,7 @@ namespace Darshana
             this.button1.TabIndex = 34;
             this.button1.Text = "Manage Labourers";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -519,6 +484,7 @@ namespace Darshana
             this.button6.TabIndex = 25;
             this.button6.Text = "Refresh";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // dataGridView1
             // 
@@ -623,6 +589,45 @@ namespace Darshana
             this.label8.Size = new System.Drawing.Size(112, 25);
             this.label8.TabIndex = 46;
             this.label8.Text = "Attendance";
+            // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.BackgroundImage = global::Darshana.Properties.Resources.macos_minimize_480px;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Location = new System.Drawing.Point(1816, 8);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(53, 49);
+            this.button5.TabIndex = 13;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackgroundImage = global::Darshana.Properties.Resources.back_to_480px;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.Location = new System.Drawing.Point(1754, 8);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(53, 49);
+            this.button4.TabIndex = 11;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImage = global::Darshana.Properties.Resources.close_window_480px;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Location = new System.Drawing.Point(1877, 8);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(53, 49);
+            this.button3.TabIndex = 12;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // SiteEngineer
             // 

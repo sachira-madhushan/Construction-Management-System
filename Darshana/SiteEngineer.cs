@@ -642,5 +642,85 @@ namespace Darshana
             SupervisorAttendance sa = new SupervisorAttendance(this);
             sa.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ManageLabourers ml = new ManageLabourers(this);
+            ml.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string date = DateTime.Now.ToString().Split()[0].Trim();
+
+            MySqlConnection connection = new MySqlConnection(db.connectionString);
+            connection.Open();
+            // WHERE attendancelabor.AttendanceDate ="+date+"
+            string query = "SELECT labor.LaborID as LaborerID,attendancelabor.AttendanceDate,attendancelabor.Site,CASE WHEN attendancelabor.IsPresent = 1 THEN 'Present' ELSE 'Absent' END AS AttendanceStatus,attendancelabor.OT,attendancelabor.Advance,attendancelabor.FA as Food FROM labor LEFT JOIN attendancelabor ON labor.LaborID = attendancelabor.LaborerID WHERE attendancelabor.AttendanceDate =@date AND labor.Site=@site;";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@date", date);
+            command.Parameters.AddWithValue("@site", site);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Refresh();
+            connection.Close();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            string date = DateTime.Now.ToString().Split()[0].Trim();
+
+            MySqlConnection connection = new MySqlConnection(db.connectionString);
+            connection.Open();
+            // WHERE attendancelabor.AttendanceDate ="+date+"
+            string query4 = "SELECT skilllabor.LaborID as LaborerID,attendanceskilllabor.AttendanceDate,attendanceskilllabor.Site,CASE WHEN attendanceskilllabor.IsPresent = 1 THEN 'Present' ELSE 'Absent' END AS AttendanceStatus,attendanceskilllabor.OT,attendanceskilllabor.Advance,attendanceskilllabor.FA as Food FROM skilllabor LEFT JOIN attendanceskilllabor ON skilllabor.LaborID = attendanceskilllabor.LaborerID WHERE attendanceskilllabor.AttendanceDate =@date AND skilllabor.Site=@site;";
+            MySqlCommand command4 = new MySqlCommand(query4, connection);
+            command4.Parameters.AddWithValue("@date", date);
+            command4.Parameters.AddWithValue("@site", site);
+            MySqlDataAdapter adapter4 = new MySqlDataAdapter(command4);
+            DataTable dataTable4 = new DataTable();
+            adapter4.Fill(dataTable4);
+            dataGridView4.DataSource = dataTable4;
+            dataGridView4.Refresh();
+            connection.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string date = DateTime.Now.ToString().Split()[0].Trim();
+
+            MySqlConnection connection = new MySqlConnection(db.connectionString);
+            connection.Open();
+            string query2 = "SELECT supervisor.SupervisorID,attendancesupervisor.AttendanceDate,attendancesupervisor.Site,CASE WHEN attendancesupervisor.IsPresent = 1 THEN 'Present' ELSE 'Absent' END AS AttendanceStatus,attendancesupervisor.OT,attendancesupervisor.Advance,attendancesupervisor.FA as Food FROM supervisor LEFT JOIN attendancesupervisor ON supervisor.SupervisorID = attendancesupervisor.SupervisorID WHERE attendancesupervisor.AttendanceDate = @date AND supervisor.Site=@site; ";
+            MySqlCommand command2 = new MySqlCommand(query2, connection);
+            command2.Parameters.AddWithValue("@date", date);
+            command2.Parameters.AddWithValue("@site", site);
+            MySqlDataAdapter adapter2 = new MySqlDataAdapter(command2);
+            DataTable dataTable2 = new DataTable();
+            adapter2.Fill(dataTable2);
+            dataGridView2.DataSource = dataTable2;
+            dataGridView2.Refresh();
+            connection.Close();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            string date = DateTime.Now.ToString().Split()[0].Trim();
+
+            MySqlConnection connection = new MySqlConnection(db.connectionString);
+            connection.Open();
+            string query3 = "SELECT * from materials WHERE Date = @date AND Site=@site; ";
+            MySqlCommand command3 = new MySqlCommand(query3, connection);
+            command3.Parameters.AddWithValue("@date", date);
+            command3.Parameters.AddWithValue("@site", site);
+            MySqlDataAdapter adapter3 = new MySqlDataAdapter(command3);
+            DataTable dataTable3 = new DataTable();
+            adapter3.Fill(dataTable3);
+            dataGridView3.DataSource = dataTable3;
+            dataGridView3.Refresh();
+            connection.Close();
+        }
     }
 }

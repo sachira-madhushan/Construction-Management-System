@@ -69,6 +69,12 @@
     <Compile Include="LaborersAttendance.Designer.cs">
       <DependentUpon>LaborersAttendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageLabourers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageLabourers.Designer.cs">
+      <DependentUpon>ManageLabourers.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageSites.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,18 @@
     <Compile Include="SiteEngineer.Designer.cs">
       <DependentUpon>SiteEngineer.cs</DependentUpon>
     </Compile>
+    <Compile Include="SkilledLabourerAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkilledLabourerAttendance.Designer.cs">
+      <DependentUpon>SkilledLabourerAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupervisorAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupervisorAttendance.Designer.cs">
+      <DependentUpon>SupervisorAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LaborersAttendance.resx">
       <DependentUpon>LaborersAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageLabourers.resx">
+      <DependentUpon>ManageLabourers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageSites.resx">
       <DependentUpon>ManageSites.cs</DependentUpon>
@@ -164,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SiteEngineer.resx">
       <DependentUpon>SiteEngineer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkilledLabourerAttendance.resx">
+      <DependentUpon>SkilledLabourerAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupervisorAttendance.resx">
+      <DependentUpon>SupervisorAttendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>
