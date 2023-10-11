@@ -10,23 +10,23 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 namespace Darshana
 {
-    public partial class LaborersAttendance : Form
+    public partial class SupervisorAttendance : Form
     {
         Database db = new Database();
         string site;
-        public LaborersAttendance(SiteEngineer se)
+        public SupervisorAttendance(SiteEngineer se)
         {
             InitializeComponent();
             site = se.site;
         }
 
-        private void LaborersAttendance_Load(object sender, EventArgs e)
+        private void SupervisorAttendance_Load(object sender, EventArgs e)
         {
             string date = DateTime.Now.ToString().Split()[0].Trim();
             MySqlConnection connection = new MySqlConnection(db.connectionString);
             connection.Open();
             // WHERE attendancelabor.AttendanceDate ="+date+"
-            string query = "SELECT labor.LaborID as LabourerID from labor WHERE labor.Site=@site;";
+            string query = "SELECT SupervisorID from supervisor WHERE Site=@site;";
             MySqlCommand command = new MySqlCommand(query, connection);
             command.Parameters.AddWithValue("@site", site);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
@@ -38,7 +38,7 @@ namespace Darshana
 
             connection.Open();
             // WHERE attendancelabor.AttendanceDate ="+date+"
-            string query2 = "SELECT LaborerID,CASE WHEN IsPresent = 1 THEN 'Present' ELSE 'Absent' END AS AttendanceStatus,OT,Advance,FA as Food from attendancelabor WHERE Site=@site AND AttendanceDate=@date;";
+            string query2 = "SELECT SupervisorID,CASE WHEN IsPresent = 1 THEN 'Present' ELSE 'Absent' END AS AttendanceStatus,OT,Advance,FA as Food from attendancesupervisor WHERE Site=@site AND AttendanceDate=@date;";
             MySqlCommand command2 = new MySqlCommand(query2, connection);
             command2.Parameters.AddWithValue("@site", site);
             command2.Parameters.AddWithValue("@date", date);
@@ -48,6 +48,11 @@ namespace Darshana
             dataGridView1.DataSource = dataTable2;
             dataGridView1.Refresh();
             connection.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            updateGridView();
         }
 
         private void updateGridView()
@@ -56,7 +61,7 @@ namespace Darshana
             MySqlConnection connection = new MySqlConnection(db.connectionString);
             connection.Open();
             // WHERE attendancelabor.AttendanceDate ="+date+"
-            string query2 = "SELECT LaborerID,CASE WHEN IsPresent = 1 THEN 'Present' ELSE 'Absent' END AS AttendanceStatus,OT,Advance,FA as Food from attendancelabor WHERE Site=@site AND AttendanceDate=@date;";
+            string query2 = "SELECT SupervisorID,CASE WHEN IsPresent = 1 THEN 'Present' ELSE 'Absent' END AS AttendanceStatus,OT,Advance,FA as Food from attendancesupervisor WHERE Site=@site AND AttendanceDate=@date;";
             MySqlCommand command2 = new MySqlCommand(query2, connection);
             command2.Parameters.AddWithValue("@site", site);
             command2.Parameters.AddWithValue("@date", date);
@@ -67,19 +72,18 @@ namespace Darshana
             dataGridView1.Refresh();
             connection.Close();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             int ot = 0, advance = 0, food = 0;
             string id = textBox1.Text;
-            string t2=textBox2.Text;
-            string t3=textBox3.Text;
+            string t2 = textBox2.Text;
+            string t3 = textBox3.Text;
             string t4 = textBox4.Text;
             ot = t2 == "" ? 0 : Int32.Parse(textBox2.Text);
             advance = t3 == "" ? 0 : Int32.Parse(textBox3.Text);
             food = t4 == "" ? 0 : Int32.Parse(textBox4.Text);
 
-            
+
             string date = DateTime.Now.ToString().Split()[0].Trim();
             if (id == null)
             {
@@ -87,12 +91,12 @@ namespace Darshana
             }
             MySqlConnection connection = new MySqlConnection(db.connectionString);
             connection.Open();
-            string query2 = "select * from labor where Site=@site and LaborID=@id;";
+            string query2 = "select * from supervisor where Site=@site and SupervisorID=@id;";
             MySqlCommand command2 = new MySqlCommand(query2, connection);
             command2.Parameters.AddWithValue("@site", site);
             command2.Parameters.AddWithValue("@id", id);
 
-            
+
             using (MySqlDataReader reader = command2.ExecuteReader())
             {
                 reader.Close();
@@ -106,7 +110,7 @@ namespace Darshana
             }
             connection.Close();
             connection.Open();
-            string query3 = "select * from attendancelabor where LaborerID=@id and AttendanceDate=@date;";
+            string query3 = "select * from attendancesupervisor where SupervisorID=@id and AttendanceDate=@date;";
             MySqlCommand command3 = new MySqlCommand(query3, connection);
             command3.Parameters.AddWithValue("@date", date);
             command3.Parameters.AddWithValue("@id", id);
@@ -116,12 +120,12 @@ namespace Darshana
                 if (reader.Read())
                 {
                     reader.Close();
-                    DialogResult dialogresult= MessageBox.Show("Attendance Already Marked! Do you want to update?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    DialogResult dialogresult = MessageBox.Show("Attendance Already Marked! Do you want to update?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
                     if (dialogresult == DialogResult.Yes)
                     {
                         // WHERE attendancelabor.AttendanceDate ="+date+"
-                        string query = "Update attendancelabor set IsPresent=1,OT=@ot,Advance=@advance,FA=@food where LaborerID=@id and AttendanceDate=@date;";
+                        string query = "Update attendancesupervisor set IsPresent=1,OT=@ot,Advance=@advance,FA=@food where SupervisorID=@id and AttendanceDate=@date;";
                         MySqlCommand command = new MySqlCommand(query, connection);
                         command.Parameters.AddWithValue("@site", site);
                         command.Parameters.AddWithValue("@id", id);
@@ -144,7 +148,7 @@ namespace Darshana
                 {
                     reader.Close();
                     // WHERE attendancelabor.AttendanceDate ="+date+"
-                    string query = "Insert into attendancelabor( Site,LaborerID,AttendanceDate,IsPresent,OT,Advance,FA) values(@site,@id,@date,1,@ot,@advance,@food);";
+                    string query = "Insert into attendancesupervisor( Site,SupervisorID,AttendanceDate,IsPresent,OT,Advance,FA) values(@site,@id,@date,1,@ot,@advance,@food);";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@site", site);
                     command.Parameters.AddWithValue("@id", id);
@@ -186,7 +190,7 @@ namespace Darshana
             }
             MySqlConnection connection = new MySqlConnection(db.connectionString);
             connection.Open();
-            string query2 = "select * from labor where Site=@site and LaborID=@id;";
+            string query2 = "select * from supervisor where Site=@site and SupervisorID=@id;";
             MySqlCommand command2 = new MySqlCommand(query2, connection);
             command2.Parameters.AddWithValue("@site", site);
             command2.Parameters.AddWithValue("@id", id);
@@ -205,7 +209,7 @@ namespace Darshana
             }
             connection.Close();
             connection.Open();
-            string query3 = "select * from attendancelabor where LaborerID=@id and AttendanceDate=@date;";
+            string query3 = "select * from attendancesupervisor where SupervisorID=@id and AttendanceDate=@date;";
             MySqlCommand command3 = new MySqlCommand(query3, connection);
             command3.Parameters.AddWithValue("@date", date);
             command3.Parameters.AddWithValue("@id", id);
@@ -220,7 +224,7 @@ namespace Darshana
                     if (dialogresult == DialogResult.Yes)
                     {
                         // WHERE attendancelabor.AttendanceDate ="+date+"
-                        string query = "Update attendancelabor set IsPresent=0,OT=@ot,Advance=@advance,FA=@food where LaborerID=@id and AttendanceDate=@date;";
+                        string query = "Update attendancesupervisor set IsPresent=0,OT=@ot,Advance=@advance,FA=@food where SupervisorID=@id and AttendanceDate=@date;";
                         MySqlCommand command = new MySqlCommand(query, connection);
                         command.Parameters.AddWithValue("@site", site);
                         command.Parameters.AddWithValue("@id", id);
@@ -243,7 +247,7 @@ namespace Darshana
                 {
                     reader.Close();
                     // WHERE attendancelabor.AttendanceDate ="+date+"
-                    string query = "Insert into attendancelabor( Site,LaborerID,AttendanceDate,IsPresent,OT,Advance,FA) values(@site,@id,@date,0,@ot,@advance,@food);";
+                    string query = "Insert into attendancesupervisor( Site,SupervisorID,AttendanceDate,IsPresent,OT,Advance,FA) values(@site,@id,@date,0,@ot,@advance,@food);";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@site", site);
                     command.Parameters.AddWithValue("@id", id);
@@ -264,66 +268,6 @@ namespace Darshana
             }
 
             connection.Close();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            updateGridView();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

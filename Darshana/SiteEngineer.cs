@@ -28,8 +28,6 @@ namespace Darshana
         private void SiteEngineer_Load(object sender, EventArgs e)
         {
             SELogin sl = new SELogin();
-            
-            MessageBox.Show(id);
             label11.Text ="SEID :"+id;
 
             timer1.Start();
@@ -608,6 +606,41 @@ namespace Darshana
                     MessageBox.Show("PDF file saved successfully.", "Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            LaborersAttendance la = new LaborersAttendance(this);
+            la.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            User us = new User();
+            this.Hide();
+            us.Show();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            SkilledLabourerAttendance sl = new SkilledLabourerAttendance(this);
+            sl.Show();
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            SupervisorAttendance sa = new SupervisorAttendance(this);
+            sa.Show();
         }
     }
 }
